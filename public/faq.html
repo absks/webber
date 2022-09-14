@@ -12,11 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-            .hide{
-              display: none;
-            }    
-    </style>
+  
 </head>
     <body class="min-h-screen main-container bg-gradient-to-t from-cyan-100 to-cyan-50">
       <div class="flex flex-col items-center  justify-center w-full max-w-[1440px]  mx-auto my-0 overflow-y-auto   " style="font-family: 'Mulish', sans-serif; ">
@@ -135,7 +131,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                     <p class="text-sm leading-5 text-gray-600 font-normal mt-[8px] content">
                       Learn how Adobe has leveraged Webber to consolidate it’s diverse range of services software
                     </p>
-                    <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this)">Read story ➔</button>
+                    <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this,0)">Read story ➔</button>
                       
                   </div>
                 <div class="max-w-[256px] ml-[85px] div4">
@@ -150,7 +146,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                     Learn how Adobe has leveraged Webber to consolidate it’s diverse range of services software
                     
                   </p>
-                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this)">Read story ➔</button>
+                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this,1)">Read story ➔</button>
                     
                 </div>
                 <div class="max-w-[256px] ml-[85px] div4">
@@ -164,7 +160,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                   <p class="text-sm leading-5 text-gray-600 font-normal mt-[8px] content">
                     Learn how Adobe has leveraged Webber to consolidate it’s diverse range of services software
                   </p>
-                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this)">Read story ➔</button>
+                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this,2)">Read story ➔</button>
                     
                   
                 </div>
@@ -179,7 +175,7 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                   <p class="text-sm leading-5 text-gray-600 font-normal mt-[8px] content ">
                     Learn how Adobe has leveraged Webber to consolidate it’s diverse range of services software
                   </p>
-                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this)">Read story ➔</button>
+                  <button class="mt-[19px] text-sm leading-[14px] font-medium underline underline-offset-2 text-cyan-700" id="myBtn" onclick="myFunction(this,3)">Read story ➔</button>
                 </div>
               </div>
               </div>
@@ -247,10 +243,11 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                             </div>
                         </footer>
             </div>
-            <script>
+            <script defer>
               let btn = document.getElementById("myBtn");
               let noOfCharac=94;
               let content=document.querySelectorAll(".content");
+              
               
               content.forEach((content)=>{
                 if(content.textContent.length < noOfCharac ){
@@ -258,17 +255,16 @@ There are many variations of passages of Lorem Ipsum available, but the majority
                 }else{
                   let displayText=content.textContent.slice(0,noOfCharac);
                   let moreText=content.textContent.slice(noOfCharac)
-                  content.innerHTML=`${displayText}<span class="dots">...</span> <span class="hide more" >${moreText}</span>`
+                  content.innerHTML=`${displayText}<span class="dots">...</span> <span class="hidden more" >${moreText}</span>`
                 }
               });
 
-              function myFunction(btn) { 
+              function myFunction(btn,index) { 
                 let addText=btn.parentElement;
-                addText.querySelector(".dots").classList.toggle("hide");
-                addText.querySelector(".more").classList.toggle("hide");
+                addText.querySelector(".dots").classList.toggle("hidden")
+                addText.querySelector(".more").classList.toggle("hidden");
                 btn.textContent == "Read story ➔" ? btn.textContent = "Read less" : btn.textContent = "Read story ➔";
               }  
-  
               </script>
               
             
